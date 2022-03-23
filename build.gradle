@@ -1,0 +1,27 @@
+
+// 그래들이란 버전설정하고 라이브러리를 땡겨오는 도구이다.
+plugins {
+	id 'org.springframework.boot' version '2.5.10'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'hello'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	// 하위 라이브러리를 mavenCentral이라는 공개된사이트에서 다운받으라는 뜻 !
+	// 필요에 의해 URL을 넣을수도 있다.
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // 템플릿엔진
+	implementation 'org.springframework.boot:spring-boot-starter-web' // 웹프로젝트
+	testImplementation 'org.springframework.boot:spring-boot-starter-test' // junit 5 기본적으로 들어감
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
